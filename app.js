@@ -1,24 +1,7 @@
-const recommendations = [
-  { icon: "T", title: "Optimize titles on 12 pages", desc: "High impressions, but CTR remains below 2%.", impact: "High impact" },
-  { icon: "+", title: "Move 8 queries into the Top 10", desc: "Currently ranking 11-15, with 3.2K potential clicks.", impact: "High impact" },
-  { icon: "-", title: "Recover declining traffic", desc: "4 pages lost more than 20% of clicks in 7 days.", impact: "Medium", medium: true },
-  { icon: "#", title: "Add internal links", desc: "6 important pages are missing internal links.", impact: "Medium", medium: true },
-];
-
 const loginScreen = document.querySelector("#loginScreen");
 const app = document.querySelector("#app");
-const recContainer = document.querySelector("#recommendations");
 const toast = document.querySelector("#toast");
 const propertySelect = document.querySelector("#propertySelect");
-
-function renderRecommendations(limit = 3) {
-  recContainer.innerHTML = recommendations.slice(0, limit).map(r => `
-    <div class="recommendation">
-      <span class="rec-icon">${r.icon}</span>
-      <div><strong>${r.title}</strong><p>${r.desc}</p></div>
-      <span class="impact ${r.medium ? "medium" : ""}">${r.impact}</span>
-    </div>`).join("");
-}
 
 function showToast(message) {
   toast.textContent = message;
@@ -125,11 +108,6 @@ document.querySelector("#aiScan").addEventListener("click", (event) => {
   }, 1100);
 });
 
-document.querySelector("#viewAll").addEventListener("click", (event) => {
-  renderRecommendations(4);
-  event.currentTarget.textContent = "All recommendations displayed";
-});
-
 document.querySelector("#menuButton").addEventListener("click", () => {
   document.querySelector("#sidebar").classList.toggle("open");
 });
@@ -143,5 +121,29 @@ document.querySelectorAll(".nav-item[data-view]").forEach(item => {
   });
 });
 
-renderRecommendations();
+document.querySelectorAll(".sort-button").forEach(button => {
+  button.addEventListener("click", () => {
+    const table = button.closest("table");
+    const column = Array.from(button.closest("tr").children).indexOf(button.closest("th"));
+    const rows = Array.from(table.querySelectorAll("tbody tr"));
+    const descending = button.dataset.direction !== "desc";
+    rows.sort((a, b) => {
+      const clean = value => value.replace(/[,%+]/g, "").trim();
+      const left = clean(a.children[column].textContent);
+      const right = clean(b.children[column].textContent);
+      const result = Number.isNaN(Number(left)) || Number.isNaN(Number(right))
+        ? left.localeCompare(right)
+        : Number(left) - Number(right);
+      return descending ? -result : result;
+    });
+    rows.forEach(row => table.tBodies[0].appendChild(row));
+    table.querySelectorAll(".sort-button").forEach(item => {
+      item.textContent = item.textContent.replace(/[↓↑]/g, "").trim();
+      delete item.dataset.direction;
+    });
+    button.dataset.direction = descending ? "desc" : "asc";
+    button.textContent += descending ? " ↓" : " ↑";
+  });
+});
+
 initializeAuth();

@@ -88,11 +88,36 @@
         </section>
 
         <section class="filters">
-          <button>◷ Last 28 days <span>⌄</span></button>
+          <button>◷ Last 3 months <span>⌄</span></button>
           <button>Web search <span>⌄</span></button>
           <button>All countries <span>⌄</span></button>
           <button>+ Add filter</button>
           <button class="compare">Compare: Previous period</button>
+        </section>
+
+        <section class="overview-hero">
+          <article class="panel performance-panel">
+            <div class="panel-title">
+              <div><h3>Organic traffic trend</h3><p>Clicks and impressions · Last 3 months compared with previous period</p></div>
+              <div class="legend"><span class="legend-blue">Clicks</span><span class="legend-purple">Impressions</span><button>Weekly⌄</button></div>
+            </div>
+            <div class="trend-summary">
+              <div class="trend-direction"><span class="trend-arrow">↗</span><div><strong>Organic traffic is growing</strong><p>Clicks are up 12.8% over the previous 3 months.</p></div></div>
+              <div class="anomaly-alert"><span>!</span><div><strong>Unusual drop detected</strong><p>Clicks fell 18% on Jun 3. Investigate affected pages.</p></div><button>Review</button></div>
+            </div>
+            <div class="chart-wrap hero-chart">
+              <div class="y-axis"><span>60K</span><span>45K</span><span>30K</span><span>15K</span><span>0</span></div>
+              <svg class="line-chart" viewBox="0 0 720 260" preserveAspectRatio="none">
+                <g class="grid-lines"><path d="M0 20H720M0 75H720M0 130H720M0 185H720M0 240H720"/></g>
+                <path class="previous-line" d="M0 215 C70 205 100 190 150 188 S250 170 300 165 S390 150 445 155 S540 135 600 140 S675 120 720 125"/>
+                <path class="chart-area-blue" d="M0 205 C70 190 90 140 150 158 S250 120 300 130 S390 95 445 110 S540 78 600 88 S670 50 720 62 V240 H0Z"/>
+                <path class="chart-blue" d="M0 205 C70 190 90 140 150 158 S250 120 300 130 S390 95 445 110 S540 78 600 88 S670 50 720 62"/>
+                <path class="chart-purple" d="M0 184 C65 172 100 180 150 150 S255 155 300 116 S390 135 445 92 S545 105 600 70 S680 84 720 43"/>
+                <g class="points points-blue"><circle cx="0" cy="205" r="3"/><circle cx="150" cy="158" r="3"/><circle cx="300" cy="130" r="3"/><circle cx="445" cy="110" r="3"/><circle cx="600" cy="88" r="3"/><circle cx="720" cy="62" r="3"/></g>
+              </svg>
+              <div class="x-axis"><span>Mar 16</span><span>Apr 1</span><span>Apr 20</span><span>May 10</span><span>Jun 16</span></div>
+            </div>
+          </article>
         </section>
 
         <section class="stats-grid">
@@ -118,34 +143,27 @@
           </article>
         </section>
 
-        <section class="main-grid">
-          <article class="panel performance-panel">
-            <div class="panel-title">
-              <div><h3>Search performance</h3><p>Clicks and impressions over time</p></div>
-              <div class="legend"><span class="legend-blue">Clicks</span><span class="legend-purple">Impressions</span><button>Daily⌄</button></div>
-            </div>
-            <div class="chart-wrap">
-              <div class="y-axis"><span>60K</span><span>45K</span><span>30K</span><span>15K</span><span>0</span></div>
-              <svg class="line-chart" viewBox="0 0 720 260" preserveAspectRatio="none">
-                <g class="grid-lines"><path d="M0 20H720M0 75H720M0 130H720M0 185H720M0 240H720"/></g>
-                <path class="chart-area-blue" d="M0 205 C70 190 90 140 150 158 S250 120 300 130 S390 95 445 110 S540 78 600 88 S670 50 720 62 V240 H0Z"/>
-                <path class="chart-blue" d="M0 205 C70 190 90 140 150 158 S250 120 300 130 S390 95 445 110 S540 78 600 88 S670 50 720 62"/>
-                <path class="chart-purple" d="M0 184 C65 172 100 180 150 150 S255 155 300 116 S390 135 445 92 S545 105 600 70 S680 84 720 43"/>
-                <g class="points points-blue"><circle cx="0" cy="205" r="3"/><circle cx="150" cy="158" r="3"/><circle cx="300" cy="130" r="3"/><circle cx="445" cy="110" r="3"/><circle cx="600" cy="88" r="3"/><circle cx="720" cy="62" r="3"/></g>
-                <g class="points points-purple"><circle cx="0" cy="184" r="3"/><circle cx="150" cy="150" r="3"/><circle cx="300" cy="116" r="3"/><circle cx="445" cy="92" r="3"/><circle cx="600" cy="70" r="3"/><circle cx="720" cy="43" r="3"/></g>
-              </svg>
-              <div class="x-axis"><span>May 20</span><span>May 27</span><span>Jun 3</span><span>Jun 10</span><span>Jun 16</span></div>
+        <section class="health-grid">
+          <article class="panel indexing-panel">
+            <div class="panel-title"><div><h3>Indexing status</h3><p>Is Google able to index your pages?</p></div><button class="plain-button">View indexing report →</button></div>
+            <div class="indexing-content">
+              <div class="index-donut"><div><strong>84%</strong><span>indexed</span></div></div>
+              <div class="index-stats">
+                <div><span class="index-dot indexed"></span><p><strong>8,642</strong><span>Indexed pages</span></p><b>+3.4%</b></div>
+                <div><span class="index-dot excluded"></span><p><strong>1,584</strong><span>Not indexed</span></p><b class="negative">+18.2%</b></div>
+              </div>
+              <div class="index-warning"><span>!</span><p><strong>Not indexed pages increased sharply</strong><small>243 additional pages were excluded in the last 7 days.</small></p><button>Investigate</button></div>
             </div>
           </article>
 
-          <article class="panel recommendation-panel">
-            <div class="panel-title"><div><h3>AI Recommendations</h3><p>Opportunities prioritized by impact</p></div><span class="new-pill">6 new</span></div>
-            <div class="score">
-              <div class="score-ring"><strong>74</strong><span>/100</span></div>
-              <div><strong>SEO Health Score</strong><p>Good · 18% improvement potential</p></div>
+          <article class="panel experience-panel">
+            <div class="panel-title"><div><h3>Experience</h3><p>Core Web Vitals overview</p></div><button class="plain-button">View report →</button></div>
+            <div class="experience-score"><strong>92%</strong><span>Good URLs</span></div>
+            <div class="vitals-list">
+              <div><span class="vital-state good-state"></span><p><strong>Good</strong><span>1,284 URLs</span></p><b>92%</b></div>
+              <div><span class="vital-state warn-state"></span><p><strong>Needs improvement</strong><span>98 URLs</span></p><b>7%</b></div>
+              <div><span class="vital-state bad-state"></span><p><strong>Poor</strong><span>14 URLs</span></p><b>1%</b></div>
             </div>
-            <div class="recommendations" id="recommendations"></div>
-            <button class="text-button" id="viewAll">View all recommendations →</button>
           </article>
         </section>
 
@@ -153,7 +171,7 @@
           <article class="panel table-panel">
             <div class="panel-title"><div><h3>Top queries</h3><p>Queries driving the most clicks</p></div><button class="plain-button">View report →</button></div>
             <div class="table-wrap"><table>
-              <thead><tr><th>QUERY</th><th>CLICKS</th><th>IMPRESSIONS</th><th>CTR</th><th>POSITION</th></tr></thead>
+              <thead><tr><th>QUERY</th><th><button class="sort-button">CLICKS ↓</button></th><th><button class="sort-button">IMPRESSIONS</button></th><th><button class="sort-button">CTR</button></th><th><button class="sort-button">POSITION</button></th></tr></thead>
               <tbody>
                 <tr><td><span class="rank">1</span> enterprise seo services</td><td>3,842</td><td>48,210</td><td><b class="good">7.97%</b></td><td>2.4 <small>↑ 0.8</small></td></tr>
                 <tr><td><span class="rank">2</span> website seo</td><td>2,914</td><td>67,452</td><td><b>4.32%</b></td><td>5.1 <small>↑ 1.2</small></td></tr>
@@ -162,14 +180,17 @@
               </tbody>
             </table></div>
           </article>
-          <article class="panel pages-panel">
-            <div class="panel-title"><div><h3>Growing pages</h3><p>Compared with the previous 28 days</p></div><button class="plain-button">All pages →</button></div>
-            <div class="page-list">
-              <div><span class="page-icon">↗</span><p><strong>/blog/what-is-seo</strong><span>8,420 clicks</span></p><b>+42%</b></div>
-              <div><span class="page-icon">↗</span><p><strong>/seo-services</strong><span>6,185 clicks</span></p><b>+31%</b></div>
-              <div><span class="page-icon">↗</span><p><strong>/blog/seo-audit</strong><span>4,951 clicks</span></p><b>+26%</b></div>
-              <div><span class="page-icon">↗</span><p><strong>/seo-tools</strong><span>3,720 clicks</span></p><b>+19%</b></div>
-            </div>
+          <article class="panel table-panel">
+            <div class="panel-title"><div><h3>Top pages</h3><p>Pages driving the most organic clicks</p></div><button class="plain-button">View report →</button></div>
+            <div class="table-wrap"><table>
+              <thead><tr><th>PAGE</th><th><button class="sort-button">CLICKS ↓</button></th><th><button class="sort-button">CHANGE</button></th></tr></thead>
+              <tbody>
+                <tr><td>/blog/what-is-seo</td><td>8,420</td><td><b class="good">+42%</b></td></tr>
+                <tr><td>/seo-services</td><td>6,185</td><td><b class="good">+31%</b></td></tr>
+                <tr><td>/blog/seo-audit</td><td>4,951</td><td><b class="good">+26%</b></td></tr>
+                <tr><td>/seo-tools</td><td>3,720</td><td><b class="good">+19%</b></td></tr>
+              </tbody>
+            </table></div>
           </article>
         </section>
       </div>
