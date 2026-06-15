@@ -238,28 +238,48 @@ header {
   font-size: 12px;
 }
 
-.property-picker {
-  min-width: 240px;
+.workspace-header {
+  min-width: 0;
+}
+
+.workspace-picker {
+  min-width: 320px;
+  max-width: min(520px, 55vw);
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 0 10px;
-  border: 1px solid #e0e0e0;
-  border-radius: 4px;
-  background: #fff;
+  margin-bottom: 3px;
   color: #6d7f86;
   font-size: 10px;
 }
 
-.property-picker select {
+.workspace-picker span {
+  color: #0096ef;
+  font-weight: 500;
+}
+
+.workspace-picker select {
   min-width: 0;
   flex: 1;
-  height: 34px;
+  max-width: 420px;
+  height: 26px;
   border: 0;
+  border-bottom: 1px solid transparent;
   outline: 0;
   background: transparent;
   color: #425a63;
   font: 500 11px Roboto, Arial, sans-serif;
+  cursor: pointer;
+}
+
+.workspace-picker select:hover,
+.workspace-picker select:focus {
+  border-bottom-color: #00bdd3;
+}
+
+.workspace-picker select:disabled {
+  cursor: default;
+  color: #6d7f86;
 }
 
 .user-card #logoutButton {
@@ -276,7 +296,12 @@ header {
 }
 
 @media(max-width:720px) {
-  .property-picker {
-    width: 100%;
+  .workspace-picker {
+    min-width: 0;
+    max-width: 58vw;
+  }
+
+  .workspace-picker span {
+    display: none;
   }
 }

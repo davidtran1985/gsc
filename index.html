@@ -65,8 +65,13 @@
     <main>
       <header>
         <button class="menu-button" id="menuButton">☰</button>
-        <div>
-          <p class="breadcrumb">Workspace / <span id="activeProperty">Select a property</span></p>
+        <div class="workspace-header">
+          <label class="workspace-picker">
+            <span>Workspace</span>
+            <select id="propertySelect" aria-label="Search Console workspace">
+              <option>Loading websites...</option>
+            </select>
+          </label>
           <h2 id="pageTitle">Overview</h2>
         </div>
         <div class="header-actions">
@@ -84,12 +89,7 @@
 
         <section class="filters">
           <button>◷ Last 28 days <span>⌄</span></button>
-          <label class="property-picker">
-            <span>Property</span>
-            <select id="propertySelect" aria-label="Search Console property">
-              <option>Loading properties...</option>
-            </select>
-          </label>
+          <button>Web search <span>⌄</span></button>
           <button>All countries <span>⌄</span></button>
           <button>+ Add filter</button>
           <button class="compare">Compare: Previous period</button>

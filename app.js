@@ -53,13 +53,13 @@ async function apiRequest(path, options) {
 }
 
 async function loadProperties() {
-  propertySelect.innerHTML = "<option>Loading properties...</option>";
+  propertySelect.innerHTML = "<option>Loading websites...</option>";
   try {
     const { sites } = await apiRequest("/api/gsc/sites");
     propertySelect.innerHTML = "";
     if (!sites.length) {
       propertySelect.innerHTML = "<option>No Search Console properties found</option>";
-      document.querySelector("#activeProperty").textContent = "No properties found";
+      propertySelect.disabled = true;
       return;
     }
     sites.forEach(site => {
@@ -68,9 +68,13 @@ async function loadProperties() {
       option.textContent = `${site.siteUrl} (${site.permissionLevel})`;
       propertySelect.appendChild(option);
     });
-    document.querySelector("#activeProperty").textContent = sites[0].siteUrl;
+    const savedProperty = localStorage.getItem("searchpilot-active-property");
+    if (savedProperty && sites.some(site => site.siteUrl === savedProperty)) {
+      propertySelect.value = savedProperty;
+    }
   } catch (error) {
-    propertySelect.innerHTML = "<option>Unable to load properties</option>";
+    propertySelect.innerHTML = "<option>Unable to load websites</option>";
+    propertySelect.disabled = true;
     showToast(error.message);
   }
 }
@@ -109,7 +113,7 @@ document.querySelector("#logoutButton").addEventListener("click", async () => {
 });
 
 propertySelect.addEventListener("change", () => {
-  document.querySelector("#activeProperty").textContent = propertySelect.value;
+  localStorage.setItem("searchpilot-active-property", propertySelect.value);
   showToast(`Selected ${propertySelect.value}`);
 });
 
