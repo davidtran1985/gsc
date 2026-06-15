@@ -228,3 +228,55 @@ header {
   background: #425a63;
   border-radius: 4px;
 }
+
+.login-error {
+  margin: -8px 0 20px;
+  padding: 10px 12px;
+  border-radius: 4px;
+  background: #fce8e6;
+  color: #c5221f !important;
+  font-size: 12px;
+}
+
+.property-picker {
+  min-width: 240px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  background: #fff;
+  color: #6d7f86;
+  font-size: 10px;
+}
+
+.property-picker select {
+  min-width: 0;
+  flex: 1;
+  height: 34px;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #425a63;
+  font: 500 11px Roboto, Arial, sans-serif;
+}
+
+.user-card #logoutButton {
+  width: auto;
+  padding: 5px 7px;
+  border-radius: 4px;
+  color: #c5221f;
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+.user-card #logoutButton:hover {
+  background: #fce8e6;
+}
+
+@media(max-width:720px) {
+  .property-picker {
+    width: 100%;
+  }
+}

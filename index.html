@@ -34,6 +34,7 @@
         <button class="google-button" id="googleLogin">
           <span class="google-g">G</span> Continue with Google
         </button>
+        <p class="login-error hidden" id="loginError"></p>
         <div class="trust-row"><span>✓ Read-only data</span><span>✓ Secure OAuth</span></div>
         <small>By continuing, you agree to the Terms of Service and Privacy Policy.</small>
       </div>
@@ -54,9 +55,9 @@
       <div class="sidebar-bottom">
         <button class="nav-item"><span>⚙</span> Settings</button>
         <div class="user-card">
-          <div class="avatar">AN</div>
-          <div><strong>An Nguyen</strong><span>an@brightseo.vn</span></div>
-          <button>⋮</button>
+          <div class="avatar" id="userAvatar">U</div>
+          <div><strong id="userName">Google user</strong><span id="userEmail">Loading...</span></div>
+          <button id="logoutButton" title="Log out">Log out</button>
         </div>
       </div>
     </aside>
@@ -65,13 +66,13 @@
       <header>
         <button class="menu-button" id="menuButton">☰</button>
         <div>
-          <p class="breadcrumb">Workspace / brightseo.vn</p>
+          <p class="breadcrumb">Workspace / <span id="activeProperty">Select a property</span></p>
           <h2 id="pageTitle">Overview</h2>
         </div>
         <div class="header-actions">
           <button class="icon-button">⌕</button>
           <button class="icon-button">♢<i></i></button>
-          <div class="avatar">AN</div>
+          <div class="avatar" id="headerAvatar">U</div>
         </div>
       </header>
 
@@ -83,7 +84,12 @@
 
         <section class="filters">
           <button>◷ Last 28 days <span>⌄</span></button>
-          <button>Web search <span>⌄</span></button>
+          <label class="property-picker">
+            <span>Property</span>
+            <select id="propertySelect" aria-label="Search Console property">
+              <option>Loading properties...</option>
+            </select>
+          </label>
           <button>All countries <span>⌄</span></button>
           <button>+ Add filter</button>
           <button class="compare">Compare: Previous period</button>
